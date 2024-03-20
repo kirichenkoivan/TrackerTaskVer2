@@ -1,18 +1,71 @@
-<!-- Файл task_manager/templates/task_manager/task_form.html -->
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %}{% endblock %}</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Дополнительные стили */
+        body {
+            background-color: #222222; /* Цвет фона */
+            color: #ffffff; /* Цвет текста */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            padding-top: 20px;
+        }
+        .form-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            background-color: #333333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .form-control {
+            background-color: #444444;
+            color: #ffffff;
+            border-color: #666666;
+        }
+        .form-control[type="date"] {
+            background-color: transparent;
+            color: #ffffff;
+            border-color: #666666;
+        }
+        .form-check-input {
+            background-color: transparent;
+            border-color: #666666;
+            color: #ffffff;
+        }
+        .btn-submit {
+            background-color: transparent;
+            border: 2px solid #666666;
+            color: #666666;
+            border-radius: 15px;
+            padding: 7px 15px;
+            width: 100%;
+        }
+        .btn-submit:hover {
+            background-color: #555555;
+            border-color: #555555;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-    <h1>{% block heading %}{% endblock %}</h1>
-    <form method="POST">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Submit</button>
-    </form>
+    <div class="container">
+        <div class="form-container">
+            <h1>{% block heading %}{% endblock %}</h1>
+            <form method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-submit">Submit</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JavaScript (необходимо для некоторых компонентов Bootstrap) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

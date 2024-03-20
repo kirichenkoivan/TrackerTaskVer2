@@ -1,16 +1,65 @@
-<!-- registration/register.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Registration</title>
+    <!-- Подключение Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        /* Дополнительные стили */
+        body {
+            background-color: #222222; /* Цвет фона */
+            color: #ffffff; /* Цвет текста */
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+            padding-top: 20px;
+        }
+        .auth-container {
+            max-width: 400px;
+            margin: 0 auto;
+            padding: 20px;
+            border: 1px solid #333333;
+            border-radius: 10px;
+            background-color: #333333;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        .auth-form {
+            margin-bottom: 20px;
+        }
+        .form-control {
+            background-color: #444444;
+            color: #ffffff;
+            border-color: #666666;
+        }
+        .btn-auth {
+            background-color: transparent;
+            border: 2px solid #666666;
+            color: #666666;
+            border-radius: 15px;
+            padding: 7px 15px;
+            width: 100%;
+        }
+        .btn-auth:hover {
+            background-color: #555555;
+            border-color: #555555;
+            color: #ffffff;
+        }
+    </style>
 </head>
 <body>
-    <h2>Register</h2>
-    <form method="post">
-        {% csrf_token %}
-        {{ form.as_p }}
-        <button type="submit">Register</button>
-    </form>
+    <div class="container">
+        <div class="auth-container">
+            <h2 class="mb-4">Registration</h2>
+            <form class="auth-form" method="POST">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn btn-auth">Register</button>
+            </form>
+            <p>Already have an account? <a href="{% url 'login' %}">Login</a></p>
+        </div>
+    </div>
+
+    <!-- Подключение Bootstrap JavaScript (необходимо для некоторых компонентов Bootstrap) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
